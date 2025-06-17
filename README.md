@@ -1,11 +1,10 @@
-
-![Image](https://github.com/user-attachments/assets/f91f590d-70b9-4f48-b2a9-44b3546ec8dc)
-
 # Hi, I'm Abhishek More 👋
 
 **Data Scientist & Full Stack Developer**
 
 ---
+
+![Image](https://github.com/user-attachments/assets/817d3719-c68e-4644-8d5d-43e0b985d0af)
 
 ## 👨‍💻 About Me
 
