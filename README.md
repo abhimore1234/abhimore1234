@@ -9,7 +9,7 @@
 
 ---
 
-<img src="https://github.com/user-attachments/assets/817d3719-c68e-4644-8d5d-43e0b985d0af" alt="Resized Image" height="200" />
+<img src="https://github.com/user-attachments/assets/817d3719-c68e-4644-8d5d-43e0b985d0af" alt="Resized Image" width="400" />
 
 ## 👨‍💻 About Me
 
