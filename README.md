@@ -1,4 +1,4 @@
-![Data Science Banner](https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1500&q=80)
+![Data Science Cartoon](https://cdn.pixabay.com/photo/2017/01/31/13/14/data-2025791_1280.png)
 
 # Hi, I'm Abhishek More 👋
 
