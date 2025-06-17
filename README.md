@@ -1,15 +1,11 @@
+
 # Hi, I'm Abhishek More 👋
 
 **Data Scientist & Full Stack Developer**
 
 ---
-# Hi, I'm Abhishek More 👋
 
-**Data Scientist & Full Stack Developer**
-
----
-
-<img src="https://github.com/user-attachments/assets/817d3719-c68e-4644-8d5d-43e0b985d0af" alt="Resized Image" width="400" />
+<img src="https://github.com/user-attachments/assets/817d3719-c68e-4644-8d5d-43e0b985d0af" alt="Resized Image" width="800" height="200"/>
 
 ## 👨‍💻 About Me
 
