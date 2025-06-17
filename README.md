@@ -1,7 +1,7 @@
 
 # Hi, I'm Abhishek More 👋
 
-**Data Scientist & Full Stack Developer**
+**Data Science & Full Stack Developer**
 
 ---
 
