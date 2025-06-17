@@ -1,4 +1,4 @@
-![Data Science Banner](https://github.com/yourusername/yourrepo/raw/main/assets/your-banner.svg)
+![Data Science Banner](https://github.com/abhimore1234/portfolio/raw/main/assets/data-science-banner.png)
 
 
 # Hi, I'm Abhishek More 👋
