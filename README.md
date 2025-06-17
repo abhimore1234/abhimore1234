@@ -3,8 +3,25 @@
 **Data Scientist & Full Stack Developer**
 
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resize Image</title>
+    <style>
+        .resized-image {
+            height: 200px; /* Set desired height */
+            width: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <img src="![Image](https://github.com/user-attachments/assets/817d3719-c68e-4644-8d5d-43e0b985d0af)" alt="Resized Image" class="resized-image">
+</body>
+</html>
 
-![Image](https://github.com/user-attachments/assets/817d3719-c68e-4644-8d5d-43e0b985d0af)
+
 
 ## 👨‍💻 About Me
 
