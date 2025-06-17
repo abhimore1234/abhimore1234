@@ -1,4 +1,5 @@
-![Data Science Banner](https://undraw.co/api/illustrations/undraw_Data_analysis_re_t1v2.svg)
+![Data Science Banner](https://undraw.co/api/illustrations/undraw_Data_trends_re_2cdy.svg)
+
 
 # Hi, I'm Abhishek More 👋
 
