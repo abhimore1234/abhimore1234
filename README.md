@@ -1,4 +1,4 @@
-![Data Scientist Cartoon](https://openclipart.org/image/400px/284009)
+![Data Science Banner](https://undraw.co/api/illustrations/undraw_Data_analysis_re_t1v2.svg)
 
 # Hi, I'm Abhishek More 👋
 
