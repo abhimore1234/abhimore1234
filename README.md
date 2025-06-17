@@ -1,4 +1,4 @@
-![Data Science Banner](https://github.com/abhimore1234/portfolio/raw/main/assets/data-science-banner.png)
+![Data Science Banner](https://i.imgur.com/yourimageid.png)
 
 
 # Hi, I'm Abhishek More 👋
