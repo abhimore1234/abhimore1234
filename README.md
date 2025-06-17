@@ -1,5 +1,5 @@
 
-![Image](https://github.com/user-attachments/assets/b87d05a1-c7b7-4861-9495-445c2d627d4e)
+![Image](https://github.com/user-attachments/assets/f91f590d-70b9-4f48-b2a9-44b3546ec8dc)
 
 # Hi, I'm Abhishek More 👋
 
