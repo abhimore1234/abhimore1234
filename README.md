@@ -1,4 +1,4 @@
-![Data Science Banner](https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80)
+![Data Science Banner](https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1500&q=80)
 
 # Hi, I'm Abhishek More 👋
 
