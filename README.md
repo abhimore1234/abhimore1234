@@ -1,4 +1,4 @@
-![Data Science Banner](https://undraw.co/api/illustrations/undraw_Data_trends_re_2cdy.svg)
+![Data Science Banner](https://github.com/yourusername/yourrepo/raw/main/assets/your-banner.svg)
 
 
 # Hi, I'm Abhishek More 👋
