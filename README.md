@@ -1,5 +1,4 @@
-![Data Scientist Cartoon](https://raw.githubusercontent.com/abhinavmir/data-science-cartoon/main/data-scientist-cartoon.png)
-
+![Data Science Cartoon Banner](https://github.com/abhinavmir/data-science-cartoon/raw/main/data-scientist-clipart.png)
 
 # Hi, I'm Abhishek More 👋
 
