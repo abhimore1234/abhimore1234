@@ -5,7 +5,7 @@
 
 ---
 
-<img src="https://github.com/user-attachments/assets/2543d49f-bdb6-49c3-8e81-b52b60ce4dd7" alt="Resized Image" width="1000" height="350"/>
+
 
 ## 👨‍💻 About Me
 
