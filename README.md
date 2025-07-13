@@ -2,7 +2,7 @@
 # Hi, I'm Abhishek More 👋
 
 **Data Science & Full Stack Developer**<br>
-🌐 Explore My Portfolio: abhimore.netlify.app <br>
+🌐 Explore My Portfolio: [abhimore.netlify.app](https://abhimore.netlify.app/) <br>
 A living canvas of my projects, capabilities, and innovations.
 
 ---
@@ -18,7 +18,7 @@ I specialize in turning complex data into actionable insights. With a strong fou
 - **Specializations:** Predictive analytics, deep learning, scalable data pipelines
 - **Interests:** AI-driven solutions for business optimization and fraud detection
 - **Continuous Learning:** Cloud-based AI, MLOps, efficient model deployment
-- My-potfolio :https://abhimore.netlify.app/
+
 
 ---
 
