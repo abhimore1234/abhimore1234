@@ -2,8 +2,8 @@
 # Hi, I'm Abhishek More 👋
 
 **Data Science & Full Stack Developer**
--🌐 Explore My Portfolio: abhimore.netlify.app
--A living canvas of my projects, capabilities, and innovations.
+🌐 Explore My Portfolio: abhimore.netlify.app <br>
+A living canvas of my projects, capabilities, and innovations.
 
 ---
 
