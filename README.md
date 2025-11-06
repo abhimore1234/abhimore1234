@@ -148,3 +148,40 @@ with open("received_" + filename, "wb") as f:
 
 server_socket.close()
 print("Connection closed.")
+
+
+## nano terminal
+
+Program statement : . Installing and configuring DHCP server and assign IP addresses to client 
+machines using DHCP server. 
+
+Commands : 
+1. sudo apt update 
+2. sudo apt install isc-dhcp-server 
+3. sudo nano /etc/dhcp/dhcpd.conf 
+default-lease-time 
+600; 
+max-lease-time 
+7200; option domain-name "example.com"; 
+option domain-name-servers 8.8.8.8, 8.8.4.4; 
+subnet 172.16.0.0 netmask 255.255.0.0 { 
+range 172.16.3.100 172.16.3.200; option 
+routers 172.16.3.1; option broadcast
+address 172.16.255.255; 
+} 
+4. sudo 
+nano 
+/etc/default/isc-dhcp-server 
+INTERFACESv4="enp1s0" or "eth0"
+5. sudo systemctl restart isc-dhcp-server 
+6. sudo systemctl status isc-dhcp-server 
+
+
+subnet 10.0.2.0 netmask 255.255.255.0 {
+  range 10.0.2.100 10.0.2.200;
+  option routers 10.0.2.1;
+  option broadcast-address 10.0.2.255;
+  default-lease-time 600;
+  max-lease-time 7200;
+}
+ 
