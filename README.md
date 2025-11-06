@@ -152,4 +152,3 @@ def dns_lookup():
  
 if __name__ == "__main__": 
     dns_lookup()
- 
