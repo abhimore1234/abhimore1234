@@ -150,6 +150,42 @@ INSERT INTO Students (student_id, name, age, gender, city) VALUES
 (110, 'Tanvi Gokhale', 28, 'Female', 'Pune');
 ________________________________________
 ✅ Step 3: 12 SQL DML Queries
+SELECT * FROM Students;
+
+SELECT * FROM Students
+WHERE city IN ('Pune', 'Mumbai');
+
+SELECT * FROM Students
+WHERE name LIKE 'A%';
+
+UPDATE Students
+SET city = 'Aurangabad'
+WHERE student_id = 105;
+
+DELETE FROM Students
+WHERE age < 18;
+
+SELECT city, COUNT(*) AS total_students
+FROM Students
+GROUP BY city;
+
+SELECT UPPER(name) AS uppercase_name, city
+FROM Students;
+
+SELECT * FROM Students
+WHERE age BETWEEN 18 AND 25;
+
+SELECT * FROM Students
+ORDER BY age DESC;
+
+SELECT * FROM Students WHERE city = 'Pune'
+UNION
+SELECT * FROM Students WHERE city = 'Nagpur';
+
+SELECT * FROM Students
+WHERE name LIKE '%e';
+UPDATE Students SET city = CASE student_id WHEN 1 THEN 'Pune' WHEN 2 THEN 'Mumbai' WHEN 3 THEN 'Delhi' END WHERE student_id IN (1, 2, 3); 
+
 1.	Select all students
 SELECT * FROM Students;
 2.	Select students from Pune or Mumbai
@@ -183,7 +219,6 @@ SELECT * FROM Students WHERE city = 'Pune'
 UNION
 SELECT * FROM Students WHERE city = 'Nagpur';
 12.	Select students whose name ends with 'e'
-
 SELECT * FROM Students
 WHERE name LIKE '%e';
 
