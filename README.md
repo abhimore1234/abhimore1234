@@ -127,7 +127,7 @@ FOREIGN KEY: Maintains referential integrity by linking to another table’s pri
 
 		
 ________________________________________
-## 🧱 Step 1: Create Table with Constraints
+## 1 🧱 Step 1: Create Table with Constraints
 
 CREATE TABLE Students (
     student_id INT PRIMARY KEY,
@@ -239,6 +239,94 @@ WHERE name LIKE '%e';
  13 .Update city using CASE expression
 UPDATE Students SET city = CASE student_id WHEN 1 THEN 'Pune' WHEN 2 THEN 'Mumbai' WHEN 3 THEN 'Delhi' END WHERE student_id IN (1, 2, 3); 
 1.	
+##Here’s a complete SQL script that creates two tables—`student` and `department`—inserts sample data, and demonstrates all five types of joins with clear examples.
+
+---
+
+## 2 🧾 **Step-by-Step SQL Script**
+
+### 🔹 Step 1: Create `student` Table
+```sql
+CREATE TABLE student (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    dept_id INT
+);
+```
+
+### 🔹 Step 2: Create `department` Table
+```sql
+CREATE TABLE department (
+    dept_id INT PRIMARY KEY,
+    age INT,
+    dept_name VARCHAR(100)
+);
+```
+
+### 🔹 Step 3: Insert Sample Data
+
+#### Students
+```sql
+INSERT INTO student VALUES (1, 'Alice', 101);
+INSERT INTO student VALUES (2, 'Bob', 102);
+INSERT INTO student VALUES (3, 'Charlie', NULL);
+INSERT INTO student VALUES (4, 'Daisy', 104);
+```
+
+#### Departments
+```sql
+INSERT INTO department VALUES (101, 40, 'Physics');
+INSERT INTO department VALUES (102, 35, 'Chemistry');
+INSERT INTO department VALUES (103, 45, 'Mathematics');
+```
+
+---
+
+## 🔍 **Join Queries**
+
+### 1️⃣ **INNER JOIN** – Students with matching departments
+```sql
+SELECT student.name, department.dept_name
+FROM student
+INNER JOIN department
+ON student.dept_id = department.dept_id;
+```
+
+### 2️⃣ **LEFT JOIN** – All students, even if department is missing
+```sql
+SELECT student.name, department.dept_name
+FROM student
+LEFT JOIN department
+ON student.dept_id = department.dept_id;
+```
+
+### 3️⃣ **RIGHT JOIN** – All departments, even if no students
+```sql
+SELECT student.name, department.dept_name
+FROM student
+RIGHT JOIN department
+ON student.dept_id = department.dept_id;
+```
+
+### 4️⃣ **FULL OUTER JOIN** – All students and departments (MySQL simulation using `UNION`)
+```sql
+SELECT student.name, department.dept_name
+FROM student
+LEFT JOIN department ON student.dept_id = department.dept_id
+UNION
+SELECT student.name, department.dept_name
+FROM student
+RIGHT JOIN department ON student.dept_id = department.dept_id;
+```
+
+### 5️⃣ **CROSS JOIN** – Every possible student–department combination
+```sql
+SELECT student.name, department.dept_name
+FROM student
+CROSS JOIN department;
+```
+
+---
 
 ________________________________________
 
