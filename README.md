@@ -183,6 +183,7 @@ SELECT * FROM Students WHERE city = 'Pune'
 UNION
 SELECT * FROM Students WHERE city = 'Nagpur';
 12.	Select students whose name ends with 'e'
+
 SELECT * FROM Students
 WHERE name LIKE '%e';
 
