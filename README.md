@@ -85,73 +85,107 @@ I specialize in turning complex data into actionable insights. With a strong fou
 _Simplicity is the ultimate sophistication._ 
 
 
+🧱 Step 1: Setup MongoDB Environment
+✅ Requirements
+- MongoDB installed locally or use MongoDB Atlas (cloud)
+- MongoDB shell (mongosh) or GUI like MongoDB Compass
+- A database and collection to work with
 
-
-## nano terminal
-
-Program statement : . Installing and configuring DHCP server and assign IP addresses to client 
-machines using DHCP server. 
-
-Commands : 
-1. sudo apt update 
-2. sudo apt install isc-dhcp-server 
-3. sudo nano /etc/dhcp/dhcpd.conf
-   
-default-lease-time 600;
-max-lease-time 7200;
-option domain-name "example.com";
-option domain-name-servers 8.8.8.8, 8.8.4.4;
-
-#important 
-subnet 172.16.0.0 netmask 255.255.0.0 { 
-range 172.16.3.100 172.16.3.200; option 
-routers 172.16.3.1; option broadcast
-address 172.16.255.255; 
-}
-
-4. sudo nano  /etc/default/isc-dhcp-server
-   
-INTERFACESv4="enp1s0" or "eth0"
-
-6. sudo systemctl restart isc-dhcp-server
   
-8. sudo systemctl status isc-dhcp-server 
+🏗️ Create a Database and Collection
+use universityDB; // switch to or create database
+db.createCollection("students"); // create collection
 
 
 
-}
+📝 Step 2: Create Documents (Insert)
 
-## code 
+🔹 insertOne() and insertMany()
+// Insert one student
+db.students.insertOne({
+  name: "Abhishek",
+  age: 22,
+  skills: ["Python", "MongoDB", "Flask"]
+});
 
-import socket 
- 
-def dns_lookup(): 
-    print("=== DNS Lookup Tool ===") 
-    print("1. URL → IP address") 
-    print("2. IP address → URL") 
-     
-    choice = input("Enter your choice (1 or 2): ") 
- 
-    if choice == "1": 
-        # Hostname to IP 
-        hostname = input("Enter website URL (e.g. www.google.com): ") 
-        try: 
-            ip = socket.gethostbyname(hostname) 
-            print(f"IP address of {hostname} is: {ip}") 
-        except socket.gaierror: 
-            print("❌ Invalid hostname or network issue.") 
- 
-    elif choice == "2": 
-        # IP to Hostname 
-        ip_address = input("Enter IP address (e.g. 8.8.8.8): ") 
-        try: 
-            host = socket.gethostbyaddr(ip_address) 
-            print(f"Hostname for IP {ip_address} is: {host[0]}") 
-        except socket.herror: 
-            print("❌ Hostname not found for this IP address.") 
- 
-    else: 
-        print("Invalid choice! Please enter 1 or 2.") 
- 
-if __name__ == "__main__": 
-    dns_lookup()
+// Insert multiple students
+db.students.insertMany([
+  { name: "Ravi", age: 23 },
+  { name: "Sneha", age: 21 }
+]);
+🔹 save() Method (Legacy but useful)
+
+// Save inserts if _id is new, updates if _id exists
+db.students.save({
+  _id: ObjectId("652f1a2b3c4d5e6f7g8h9i0j"),
+  name: "Abhishek More",
+  age: 23,
+  skills: ["Python", "Flask", "MongoDB"]
+});
+
+
+
+🔍 Step 3: Read Documents (Query)
+🔹 Basic Find
+db.students.find(); // all documents
+db.students.find({ age: { $gt: 21 } }); // age > 21
+
+ Logical Operators
+// AND
+db.students.find({
+  $and: [{ age: { $gt: 20 } }, { skills: "MongoDB" }]
+});
+
+// OR
+db.students.find({
+  $or: [{ age: { $lt: 22 } }, { name: "Sneha" }]
+});
+
+// NOT
+db.students.find({
+  age: { $not: { $gt: 25 } }
+});
+
+
+
+✏️ Step 4: Update Documents
+🔹 updateOne() and updateMany()
+// Update one
+db.students.updateOne(
+  { name: "Ravi" },
+  { $set: { age: 24 } }
+);
+
+// Update many
+db.students.updateMany(
+  { age: { $lt: 22 } },
+  { $set: { status: "junior" } }
+);
+
+
+🗑️ Step 5: Delete Documents
+🔹 deleteOne() and deleteMany()
+db.students.deleteOne({ name: "Sneha" }); // delete one
+db.students.deleteMany({ age: { $lt: 22 } }); // delete many
+
+
+
+🧠 Step 6: Use save() for Upsert Logic
+🔹 Save = Insert or Update
+db.students.save({
+  _id: ObjectId("652f1a2b3c4d5e6f7g8h9i0j"),
+  name: "Abhishek More",
+  age: 24,
+  skills: ["Python", "MongoDB", "Flask", "JavaScript"]
+});
+
+
+
+
+
+
+
+
+
+
+
