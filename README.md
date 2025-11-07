@@ -190,9 +190,11 @@ CREATE VIEW Pune_Students AS
 SELECT student_id, name, age, gender
 FROM Students
 WHERE city = 'Pune';
+
 SELECT * FROM Pune_Students;
 
 CREATE INDEX idx_city ON Students(city);
+
 SELECT * FROM Students WHERE city = 'Pune';
 
 1.	Select all students
