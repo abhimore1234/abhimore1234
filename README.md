@@ -243,16 +243,20 @@ ________________________________________
 
 ## . Cursors: (All types: Implicit, Explicit, Cursor FOR Loop, Parameterized Cursor) Write a PL/SQL block of code using parameterized Cursor that will merge the data available in the newly created table N_Roll_Call with the data available in the table O_Roll_Call. If the data in the first table already exists in the second table then that data should be skipped. Note: Instructor will frame the problem statement for writing PL/SQL block using all types of Cursors in line with above statement.
 Setp 1: -- N_Roll_Call (new data)
+
 CREATE TABLE N_Roll_Call (
     student_id INT PRIMARY KEY,
     student_name VARCHAR2(100),
     birth_date DATE
 );
+
 Step 2: -- Insert some records
+
 INSERT INTO O_Roll_Call VALUES (1, 'Shivanna', TO_DATE('1995-08-15','YYYY-MM-DD'));
 INSERT INTO O_Roll_Call VALUES (3, 'Cheluva', TO_DATE('1990-12-10','YYYY-MM-DD'));
 
 Step 3: -- O_Roll_Call (old data)
+
 CREATE TABLE O_Roll_Call (
     student_id INT PRIMARY KEY,
     student_name VARCHAR2(100),
@@ -260,14 +264,18 @@ CREATE TABLE O_Roll_Call (
 );
 
 Step 4: -- Insert some records
+
 INSERT INTO N_Roll_Call VALUES (1, 'Shivanna', TO_DATE('1995-08-15','YYYY-MM-DD'));    -- Already in old table
 INSERT INTO N_Roll_Call VALUES (2, 'Bhadramma', TO_DATE('1998-03-22','YYYY-MM-DD'));  -- Unique
 INSERT INTO N_Roll_Call VALUES (3, 'Cheluva', TO_DATE('1990-12-10','YYYY-MM-DD'));    -- Already in old table
 INSERT INTO N_Roll_Call VALUES (4, 'Devendra', TO_DATE('2000-05-18','YYYY-MM-DD'));   -- Unique
 
 -- Check initial state
+
 SELECT * FROM O_Roll_Call;
+
 SELECT * FROM N_Roll_Call;
+
 🧠 What Are Cursors in PL/SQL?
 In PL/SQL, cursors are control structures that allow row-by-row processing of query results. They are essential when a query returns multiple rows and you need to handle each row individually.
 Implicit Cursor
