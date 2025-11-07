@@ -503,3 +503,89 @@ $and: [
 { status: "active" } 
 ] 
 })
+
+
+## connectivity
+# mysql -u root -p
+
+# show database;
+
+# CREATE DATABASE collage;
+
+# USE collage;
+
+# CREATE TABLE student (
+#   id INT AUTO_INCREMENT PRIMARY KEY,
+#    name VARCHAR(100),
+#    age INT,
+#    city VARCHAR(100)
+# );
+
+# INSERT INTO student (name, age, city) VALUES
+# ('John', 21, 'Delhi'),
+# ('Priya', 22, 'Mumbai'),
+# ('Amit', 20, 'Chennai'),
+# ('Sara', 23, 'Kolkata');
+
+# SELECT USER();
+
+
+
+import mysql.connector # pip install mysql-connector-python
+con =mysql.connector.connect(
+host="localhost",
+user="root",
+password ="DON@1234rocky",  #pass=123456
+database = "collage"
+)
+if con.is_connected():
+    print("sucessful")
+while True :
+    cursor = con.cursor()
+    print("1 insert the record")
+    print("2 view the records")
+    print("3 update the records")
+    print("4 delete the records ")
+    print("5 exit")
+
+    choice = int(input("Enter the no:"))
+    if choice == 1:
+        name =input("Enter the name :")
+        age = int(input("Enter the age :"))
+        city = input("Enter the city :")
+        sql = "insert into student (name,age,city) values (%s,%s,%s)"
+        values= (name,age,city)
+        cursor.execute(sql,values)
+        con.commit()
+        print("Record insert successfully")
+
+    if choice == 2:
+        cursor.execute("select * from student")
+        records= cursor.fetchall()
+        for rec in records:
+            print(rec)
+
+    if choice == 3:
+        name = input("Enter the name:")
+        city = input("Enter the age :")
+        sql = "update student set age = %s where name = %s"
+        values =(city , name)
+        cursor.execute(sql,values)
+        con.commit()
+        print("Record update")
+
+    if choice == 4:
+        name = input("Enter the name :")
+        sql = "delete from student where name = %s"
+        cursor.execute(sql,(name,))
+        con.commit()
+        print("Record delete successfully")
+
+    if choice == 5:
+        print("exit",exit())
+
+
+
+
+cursor.close()
+con.close()
