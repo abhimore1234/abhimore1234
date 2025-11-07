@@ -325,6 +325,13 @@ SELECT student.name, department.dept_name
 FROM student
 CROSS JOIN department;
 ```
+### view 
+CREATE VIEW view_inner_join AS
+SELECT student.name AS student_name, department.dept_name AS department_name
+FROM student
+INNER JOIN department ON student.dept_id = department.dept_id;
+
+SELECT * FROM view_inner_join;
 
 ---
 
