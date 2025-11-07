@@ -506,28 +506,28 @@ $and: [
 
 
 ## connectivity
-# mysql -u root -p
+### # mysql -u root -p
 
-# show database;
+### # show database;
 
-# CREATE DATABASE collage;
+### # CREATE DATABASE collage;
 
-# USE collage;
+### # USE collage;
 
-# CREATE TABLE student (
-#   id INT AUTO_INCREMENT PRIMARY KEY,
-#    name VARCHAR(100),
-#    age INT,
-#    city VARCHAR(100)
-# );
+### # CREATE TABLE student (
+### #   id INT AUTO_INCREMENT PRIMARY KEY,
+### #    name VARCHAR(100),
+### #    age INT,
+### #    city VARCHAR(100)
+### # );
 
-# INSERT INTO student (name, age, city) VALUES
-# ('John', 21, 'Delhi'),
-# ('Priya', 22, 'Mumbai'),
-# ('Amit', 20, 'Chennai'),
-# ('Sara', 23, 'Kolkata');
+### # INSERT INTO student (name, age, city) VALUES
+### # ('John', 21, 'Delhi'),
+### # ('Priya', 22, 'Mumbai'),
+### # ('Amit', 20, 'Chennai'),
+### # ('Sara', 23, 'Kolkata');
 
-# SELECT USER();
+### # SELECT USER();
 
 
 
