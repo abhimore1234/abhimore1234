@@ -127,7 +127,8 @@ FOREIGN KEY: Maintains referential integrity by linking to another table’s pri
 
 		
 ________________________________________
-🧱 Step 1: Create Table with Constraints
+## 🧱 Step 1: Create Table with Constraints
+
 CREATE TABLE Students (
     student_id INT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -137,6 +138,7 @@ CREATE TABLE Students (
 );
 ________________________________________
 🧩 Step 2: Insert Sample Values
+
 INSERT INTO Students (student_id, name, age, gender, city) VALUES
 (101, 'Abhishek More', 22, 'Male', 'Indapur'),
 (102, 'Sneha Patil', 20, 'Female', 'Pune'),
@@ -323,3 +325,86 @@ Manually declared for queries returning multiple rows. Requires OPEN, FETCH, and
 ROLLBACK is a command used to undo all changes made during the current transaction before a COMMIT is issued.
 COMMIT; statement at the end, which ensures that all inserted records from N_Roll_Call into O_Roll_Call are permanently saved in the database.
 
+
+## Problem statement: 3. MongoDB Queries: 
+Design and Develop MongoDB Queries using CRUD operations. (Use CRUD 
+operations, SAVE method, 
+logical operators etc.). 
+1. Mongosh
+   
+3. Show dbs(default)
+   
+1.create collection
+
+db.createCollection(“c_name”); 
+
+2.show collection 
+
+show Collections; 
+
+3.data insert one 
+
+db.c_name.insertOne({//data}) 
+db.c_name.insertOne({name:”abc”, age:21, city:”xyz”}); 
+
+4.data insert many 
+
+db.c_name.insertMany([ {}, {} ,{}, {} ]); 
+db.c_name.insertMany([{name:”abc”, age:2}, {name;”xyz”, age:4}]); 
+
+5.see the data 
+
+db.c_name.find(); 
+db.student.find(); 
+db.student.find().limit(3); 
+[limit(3)--- show only 3 documents  
+Find()----show all the documents] 
+
+6.greater than  
+
+db.student.find ({age:  {$ gt:21}}); 
+
+7.less than  
+
+db.student.find ({age:  {$ lt:21}}); 
+
+8.less than or equal to  
+
+db.student.find({age: {$ lte 21}}); 
+
+9.greater than or equal to
+
+db.student.find({age: {$ gte 21}}); 
+
+10.match any value inside the given list 
+
+db.student.find({age: {$ in: [20,21,22 ]}}); 
+
+11.finding data 
+
+db.c_name.findOne({name: “abc”}); 
+
+12.update or add one data 
+
+db.student.updateOne({name: “abc”}, {$set: {email: “abc@gmail.com”}}); 
+
+13. update or add many data
+14.  
+db.student.updateMany({age: {$gt: 19}, {$set: {city: “pune”}}});
+
+14.delete one  
+
+db.student.deleteOne ({age: 5}); 
+
+15.delete many 
+
+db.student.deleteMany({age: 20}); 
+
+16.logical operator and  
+
+db.collection.find({ 
+$and: [ 
+{ age: { $gt: 25 } }, 
+{ status: "active" } 
+] 
+})
