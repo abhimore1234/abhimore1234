@@ -84,100 +84,116 @@ I specialize in turning complex data into actionable insights. With a strong fou
 
 _Simplicity is the ultimate sophistication._ 
 
+1. Table
+•	Definition: A table stores structured data in rows and columns.
+•	Use: Core data storage unit in relational databases.
+✅ Example
+CREATE TABLE employees ( emp_id INT PRIMARY KEY, name VARCHAR(100), salary DECIMAL(10,2) ); 
+📤 Sample Output
+After inserting:
+INSERT INTO employees VALUES (101, 'Abhishek More', 60000.00); 
+2. View
+•	Definition: A virtual table based on a SELECT query.
+•	Use: Simplifies complex queries, restricts access, formats data.
+✅ Example
+CREATE VIEW high_earners AS SELECT name, salary FROM employees WHERE salary > 50000; 
+📤 Sample Output
+SELECT * FROM high_earners; 
+	
+	
+3. Index
+•	Definition: A performance object that speeds up data retrieval.
+•	Use: Optimizes queries on large datasets.
+✅ Example
+CREATE INDEX idx_name ON employees(name); 
+📤 Output
+No visible result—performance improves internally. You can verify with:
+SHOW INDEX FROM employees; 
 
-🧱 Step 1: Setup MongoDB Environment
-✅ Requirements
-- MongoDB installed locally or use MongoDB Atlas (cloud)
-- MongoDB shell (mongosh) or GUI like MongoDB Compass
-- A database and collection to work with
+4. Sequence (Oracle only)
+•	Definition: Generates unique numbers, often for primary keys.
+•	Use: Auto-incrementing IDs.
+5. Synonym (Oracle only)
+•	Definition: Alias for another object.
+•	Use: Simplifies access, hides actual object name.
+✅ 6. Constraints
+		
+•  PRIMARY KEY: Uniquely identifies each row and prevents duplicates or NULLs.
+NOT NULL: Ensures that a column must always have a value.
+UNIQUE: Guarantees that all values in a column are distinct.
+CHECK: Validates data against a condition to enforce logical rules.
+DEFAULT: Automatically assigns a predefined value when none is provided.
+FOREIGN KEY: Maintains referential integrity by linking to another table’s primary key.
 
-  
-🏗️ Create a Database and Collection
-use universityDB; // switch to or create database
-db.createCollection("students"); // create collection
-
-
-
-📝 Step 2: Create Documents (Insert)
-
-🔹 insertOne() and insertMany()
-// Insert one student
-db.students.insertOne({
-  name: "Abhishek",
-  age: 22,
-  skills: ["Python", "MongoDB", "Flask"]
-});
-
-// Insert multiple students
-db.students.insertMany([
-  { name: "Ravi", age: 23 },
-  { name: "Sneha", age: 21 }
-]);
-🔹 save() Method (Legacy but useful)
-
-// Save inserts if _id is new, updates if _id exists
-db.students.save({
-  _id: ObjectId("652f1a2b3c4d5e6f7g8h9i0j"),
-  name: "Abhishek More",
-  age: 23,
-  skills: ["Python", "Flask", "MongoDB"]
-});
-
-
-
-🔍 Step 3: Read Documents (Query)
-🔹 Basic Find
-db.students.find(); // all documents
-db.students.find({ age: { $gt: 21 } }); // age > 21
-
- Logical Operators
-// AND
-db.students.find({
-  $and: [{ age: { $gt: 20 } }, { skills: "MongoDB" }]
-});
-
-// OR
-db.students.find({
-  $or: [{ age: { $lt: 22 } }, { name: "Sneha" }]
-});
-
-// NOT
-db.students.find({
-  age: { $not: { $gt: 25 } }
-});
-
-
-
-✏️ Step 4: Update Documents
-🔹 updateOne() and updateMany()
-// Update one
-db.students.updateOne(
-  { name: "Ravi" },
-  { $set: { age: 24 } }
+		
+________________________________________
+🧱 Step 1: Create Table with Constraints
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT CHECK (age >= 16 AND age <= 30),
+    gender VARCHAR(10) CHECK (gender IN ('Male', 'Female', 'Other')),
+    city VARCHAR(50) DEFAULT 'Unknown'
 );
+________________________________________
+🧩 Step 2: Insert Sample Values
+INSERT INTO Students (student_id, name, age, gender, city) VALUES
+(101, 'Abhishek More', 22, 'Male', 'Indapur'),
+(102, 'Sneha Patil', 20, 'Female', 'Pune'),
+(103, 'Ravi Deshmukh', 19, 'Male', 'Mumbai'),
+(104, 'Priya Kulkarni', 21, 'Female', 'Nagpur'),
+(105, 'Amit Joshi', 17, 'Male', 'Solapur'),
+(106, 'Neha Shinde', 23, 'Female', 'Pune'),
+(107, 'Kiran Pawar', 18, 'Male', 'Nashik'),
+(108, 'Meera Naik', 25, 'Female', 'Kolhapur'),
+(109, 'Omkar Kale', 30, 'Male', 'Satara'),
+(110, 'Tanvi Gokhale', 28, 'Female', 'Pune');
+________________________________________
+✅ Step 3: 12 SQL DML Queries
+1.	Select all students
+SELECT * FROM Students;
+2.	Select students from Pune or Mumbai
+SELECT * FROM Students
+WHERE city IN ('Pune', 'Mumbai');
+3.	Select students with name starting with 'A'
+SELECT * FROM Students
+WHERE name LIKE 'A%';
+4.	Update city of a student
+UPDATE Students
+SET city = 'Aurangabad'
+WHERE student_id = 105;
+5.	Delete students younger than 18
+DELETE FROM Students
+WHERE age < 18;
+6.	Count students by city
+SELECT city, COUNT(*) AS total_students
+FROM Students
+GROUP BY city;
+7.	Display names in uppercase
+SELECT UPPER(name) AS uppercase_name, city
+FROM Students;
+8.	Select students with age between 18 and 25
+SELECT * FROM Students
+WHERE age BETWEEN 18 AND 25;
+9.	Sort students by age descending
+SELECT * FROM Students
+ORDER BY age DESC;
+11.	Use UNION to combine students from Pune and Nagpur
+SELECT * FROM Students WHERE city = 'Pune'
+UNION
+SELECT * FROM Students WHERE city = 'Nagpur';
+12.	Select students whose name ends with 'e'
+SELECT * FROM Students
+WHERE name LIKE '%e';
 
-// Update many
-db.students.updateMany(
-  { age: { $lt: 22 } },
-  { $set: { status: "junior" } }
-);
+
+ 13 .Update city using CASE expression
+UPDATE Students SET city = CASE student_id WHEN 1 THEN 'Pune' WHEN 2 THEN 'Mumbai' WHEN 3 THEN 'Delhi' END WHERE student_id IN (1, 2, 3); 
+1.	
+
+________________________________________
 
 
-🗑️ Step 5: Delete Documents
-🔹 deleteOne() and deleteMany()
-db.students.deleteOne({ name: "Sneha" }); // delete one
-db.students.deleteMany({ age: { $lt: 22 } }); // delete many
-
-
-
-🧠 Step 6: Use save() for Upsert Logic
-🔹 Save = Insert or Update
-db.students.save({
-  _id: ObjectId("652f1a2b3c4d5e6f7g8h9i0j"),
-  name: "Abhishek More",
-  age: 24,
-  skills: ["Python", "MongoDB", "Flask", "JavaScript"]
-});
 
 
 
