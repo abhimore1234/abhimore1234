@@ -186,6 +186,15 @@ SELECT * FROM Students
 WHERE name LIKE '%e';
 UPDATE Students SET city = CASE student_id WHEN 1 THEN 'Pune' WHEN 2 THEN 'Mumbai' WHEN 3 THEN 'Delhi' END WHERE student_id IN (1, 2, 3); 
 
+CREATE VIEW Pune_Students AS
+SELECT student_id, name, age, gender
+FROM Students
+WHERE city = 'Pune';
+SELECT * FROM Pune_Students;
+
+CREATE INDEX idx_city ON Students(city);
+SELECT * FROM Students WHERE city = 'Pune';
+
 1.	Select all students
 SELECT * FROM Students;
 2.	Select students from Pune or Mumbai
