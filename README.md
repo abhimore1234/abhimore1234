@@ -242,39 +242,75 @@ ________________________________________
 
 
 ## . Cursors: (All types: Implicit, Explicit, Cursor FOR Loop, Parameterized Cursor) Write a PL/SQL block of code using parameterized Cursor that will merge the data available in the newly created table N_Roll_Call with the data available in the table O_Roll_Call. If the data in the first table already exists in the second table then that data should be skipped. Note: Instructor will frame the problem statement for writing PL/SQL block using all types of Cursors in line with above statement.
-Setp 1: -- N_Roll_Call (new data)
 
-CREATE TABLE N_Roll_Call (
-    student_id INT PRIMARY KEY,
-    student_name VARCHAR2(100),
-    birth_date DATE
-);
-
-Step 2: -- Insert some records
-
-INSERT INTO O_Roll_Call VALUES (1, 'Shivanna', TO_DATE('1995-08-15','YYYY-MM-DD'));
-INSERT INTO O_Roll_Call VALUES (3, 'Cheluva', TO_DATE('1990-12-10','YYYY-MM-DD'));
-
-Step 3: -- O_Roll_Call (old data)
+-- Step 1: Create O_Roll_Call first
 
 CREATE TABLE O_Roll_Call (
     student_id INT PRIMARY KEY,
     student_name VARCHAR2(100),
-    birth_date DATE
+    address VARCHAR2(255)
 );
 
-Step 4: -- Insert some records
+-- Step 2: Insert old records
 
-INSERT INTO N_Roll_Call VALUES (1, 'Shivanna', TO_DATE('1995-08-15','YYYY-MM-DD'));    -- Already in old table
-INSERT INTO N_Roll_Call VALUES (2, 'Bhadramma', TO_DATE('1998-03-22','YYYY-MM-DD'));  -- Unique
-INSERT INTO N_Roll_Call VALUES (3, 'Cheluva', TO_DATE('1990-12-10','YYYY-MM-DD'));    -- Already in old table
-INSERT INTO N_Roll_Call VALUES (4, 'Devendra', TO_DATE('2000-05-18','YYYY-MM-DD'));   -- Unique
+INSERT INTO O_Roll_Call VALUES (1, 'Shivanna', '123 Green Street');
+INSERT INTO O_Roll_Call VALUES (3, 'Cheluva', '456 Blue Avenue');
 
--- Check initial state
+-- Step 3: Create N_Roll_Call
+
+CREATE TABLE N_Roll_Call (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR2(100),
+    address VARCHAR2(255)
+);
+
+-- Step 4: Insert new records
+
+INSERT INTO N_Roll_Call VALUES (1, 'Shivanna', '123 Green Street');
+INSERT INTO N_Roll_Call VALUES (2, 'Bhadramma', '789 Yellow Blvd');
+INSERT INTO N_Roll_Call VALUES (3, 'Cheluva', '456 Blue Avenue');
+INSERT INTO N_Roll_Call VALUES (4, 'Devendra', '101 Red Road');
+
+-- Step 5: Check initial state
+
+SELECT * FROM O_Roll_Call;
+SELECT * FROM N_Roll_Call;
+
+-- Step 6: Merge using Parameterized Cursor
+
+DECLARE
+    -- Cursor to check if student exists in O_Roll_Call
+    CURSOR check_student(p_id INT) IS
+        SELECT student_id FROM O_Roll_Call WHERE student_id = p_id;
+
+    -- Cursor to loop through new students
+    CURSOR new_students IS
+        SELECT student_id, student_name, address FROM N_Roll_Call;
+
+    v_dummy O_Roll_Call.student_id%TYPE;
+BEGIN
+    FOR rec IN new_students LOOP
+        OPEN check_student(rec.student_id);
+        FETCH check_student INTO v_dummy;
+
+        IF check_student%NOTFOUND THEN
+            INSERT INTO O_Roll_Call (student_id, student_name, address)
+            VALUES (rec.student_id, rec.student_name, rec.address);
+        END IF;
+
+        CLOSE check_student;
+    END LOOP;
+
+    COMMIT;
+
+    DBMS_OUTPUT.PUT_LINE('✅ Merge complete. New students added to O_Roll_Call.');
+END;
+/
+
+-- Step 7: Final check after merge
 
 SELECT * FROM O_Roll_Call;
 
-SELECT * FROM N_Roll_Call;
 
 🧠 What Are Cursors in PL/SQL?
 In PL/SQL, cursors are control structures that allow row-by-row processing of query results. They are essential when a query returns multiple rows and you need to handle each row individually.
@@ -286,15 +322,4 @@ Manually declared for queries returning multiple rows. Requires OPEN, FETCH, and
 🔄 What is ROLLBACK in SQL/PLSQL?
 ROLLBACK is a command used to undo all changes made during the current transaction before a COMMIT is issued.
 COMMIT; statement at the end, which ensures that all inserted records from N_Roll_Call into O_Roll_Call are permanently saved in the database.
-
-
-
-
-
-
-
-
-
-
-
 
