@@ -241,7 +241,7 @@ UPDATE Students SET city = CASE student_id WHEN 1 THEN 'Pune' WHEN 2 THEN 'Mumba
 ________________________________________
 
 
-###. Cursors: (All types: Implicit, Explicit, Cursor FOR Loop, Parameterized Cursor) Write a PL/SQL block of code using parameterized Cursor that will merge the data available in the newly created table N_Roll_Call with the data available in the table O_Roll_Call. If the data in the first table already exists in the second table then that data should be skipped. Note: Instructor will frame the problem statement for writing PL/SQL block using all types of Cursors in line with above statement.
+## . Cursors: (All types: Implicit, Explicit, Cursor FOR Loop, Parameterized Cursor) Write a PL/SQL block of code using parameterized Cursor that will merge the data available in the newly created table N_Roll_Call with the data available in the table O_Roll_Call. If the data in the first table already exists in the second table then that data should be skipped. Note: Instructor will frame the problem statement for writing PL/SQL block using all types of Cursors in line with above statement.
 Setp 1: -- N_Roll_Call (new data)
 CREATE TABLE N_Roll_Call (
     student_id INT PRIMARY KEY,
