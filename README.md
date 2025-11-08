@@ -589,3 +589,103 @@ while True :
 
 cursor.close()
 con.close()
+## Command
+
+sudo /etc/init.d/oracle-xe configure
+sudo /etc/init.d/oracle-xe start
+http://127.0.0.1:8080/apex
+
+Sudo service Oracle start
+
+In terminal
+
+## borrower
+
+create table borrower
+(
+    Roll_no NUMBER PRIMARY KEY,
+    Name VARCHAR2(50),
+    Date_of_Issue DATE,
+    Name_of_Book VARCHAR2(100),
+    Status CHAR(1)
+);
+
+create table fine
+(
+  Roll_no NUMBER,
+    Date_of_Fine DATE,
+    Amt NUMBER
+  );
+  
+  
+insert into borrower values
+(1,'Abhi',to_date('12-oct-2025','dd-mm-yyyy'),'python','I');
+
+insert into borrower values
+(2,'Atharv',to_date('15-oct-2025','dd-mm-yyyy'),'java','I');
+
+insert into borrower values
+(3,'Prashika',to_date('20-oct-2025','dd-mm-yyyy'),'c++','I');
+
+insert into borrower values
+(4,'Safura',to_date('28-oct-2025','dd-mm-yyyy'),'stat','I');
+
+insert into borrower values
+(1,'Abhi more',to_date('12-oct-2025','dd-mm-yyyy'),'kotlin','I');
+
+
+select * from borrower;
+select * from fine;
+
+declare 
+v_Roll_no      borrower.Roll_no%type := &Roll_no;
+v_book_name    borrower.Name_of_Book%type := '&book_name';
+v_date_of_issue borrower.Date_of_Issue%type;
+v_days number;
+v_fine_amt number :=0;
+v_status borrower.status%type;
+
+begin
+
+    SELECT Date_of_issue,status
+    into v_date_of_issue,v_status
+    from borrower
+    where Roll_no = v_Roll_no and  Name_of_Book = v_book_name;
+
+    if v_status = 'R' then 
+        dbms_output.put_line('Book already recieved');
+        
+    else
+        v_days :=trunc(sysdate - v_date_of_issue);
+        
+        if v_days >30 then
+            v_fine_amt :=(v_days -30)*50 +15*5;
+        elsif v_days >15 then 
+            v_fine_amt := (v_days -15)*5;
+        else    
+            v_fine_amt := 0;
+        end if;
+        
+        update borrower 
+        set status = 'R'
+        where Roll_no = v_Roll_no and Name_of_Book = v_book_name;
+        
+        if v_fine_amt > 0 then 
+            insert into fine (Roll_no, Date_of_Fine,Amt)
+            values (v_Roll_no,sysdate,v_fine_amt);
+       end if;
+       
+       dbms_output.put_line('succesfully book return');
+       dbms_output.put_line('total fine' || v_fine_amt);
+       dbms_output.put_line('total days' || v_days);
+       end if;
+exception
+   when no_data_found then 
+     dbms_output.put_line('record nto found');
+   when others then 
+     dbms_output.put_line('error');
+     
+ end;
+ 
+ /
+
