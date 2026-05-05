@@ -85,8 +85,8 @@ I specialize in turning complex data into actionable insights. With a strong fou
 # ANN
 
 
-Write a Python program to plot a few activation functions that are being used in neural 
-networks.
+# Write a Python program to plot a few activation functions that are being used in neural 
+--- networks.
 import
  numpy 
 as np
@@ -131,7 +131,7 @@ y =
 plt.plot(x, y)
 plt.title(
 "Softplus")
-plt.show()
+plt.show()---
 �
 � Activation Functions in Neural Networks (Theory)
 1.
