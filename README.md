@@ -132,6 +132,10 @@ plt.plot(x, y)
 plt.title(
 "Softplus")
 plt.show()---
+
+
+
+
 �
 � Activation Functions in Neural Networks (Theory)
 1.
