@@ -582,7 +582,9 @@ Learns to classify numbers into even and odd Uses ASCII values as input Improves
 training
 📘 It demonstrates how neural networks can solve simple classification problems.
 ✔
-Write a python program to design a Hopfield Network which stores 4 vectors
+# 4 Write a python program to design a Hopfield Network which stores 4 vectors
+
+
 import numpy as np
 p1 = np.array([1, -1, 1, -1])
 p2 = np.array([1, 1, -1, -1])
@@ -619,6 +621,8 @@ Weight Matrix:
  [-2. -2.  0.  0.]
  [-2. -2.  0.  0.]]
 �
+
+
 � Hopfield Network (Storing 4 Vectors) – Theory
 1.
 Introduction
@@ -684,7 +688,9 @@ The Hopfield Network:
 Stores 4 vectors as memory Recalls correct pattern from input Updates values until stable result 
 is achieved
 📘 It shows how neural networks can act like a content-addressable memory system.
-Write a python Program for Bidirectional Associative Memory with two pairs of vectors.
+# 5 Write a python Program for Bidirectional Associative Memory with two pairs of vectors.
+
+
 import numpy as np
 x = np.array ([
     [1,-1,1],
@@ -707,6 +713,8 @@ test_y = np.array([[1,1,-1]])
 recalled_x = recall(test_y, w.T, is_forward=False)
 print("Recalled x for given y:", recalled_x)
 Recalled x for given y: [[ 1 -1  1]]
+
+
 📘 Bidirectional Associative Memory (BAM) – Theory
 1. Introduction
 Bidirectional Associative Memory (BAM) is a type of neural network used to store and recall 
@@ -787,7 +795,9 @@ Bidirectional Associative Memory:
 Stores relationships between patterns Recalls data in forward and backward direction Uses 
 iterative process to reach correct output
 📘 It is useful in applications where two types of data are linked together.
-Write a python program to illustrate ART neural network
+# 6 Write a python program to illustrate ART neural network
+
+
 import numpy as np
 data = np.array([
     [1, 1, 0, 0],
@@ -846,6 +856,8 @@ Cluster 2 : [1 1 1 0]
 Cluster 3 : [0 0 1 1]
 , ":"
 , cluster[i])
+
+
 📘 ART Neural Network (Theory)
 1.
 Introduction
@@ -909,8 +921,10 @@ Conclusion
 ART neural network:
 Groups similar patterns Adapts to new data Maintains balance between learning and memory
 📘 It is useful in systems where continuous learning is required.
-Implement Artificial Neural Network training process in Python by using Forward Propagation, 
+# 7 Implement Artificial Neural Network training process in Python by using Forward Propagation, 
 Back Propagation.
+
+
 import numpy as np
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
@@ -972,6 +986,8 @@ Final outputs after training:
  [0.98285981]
  [0.9828567 ]
  [0.01775138]]
+
+ 
 📘 Artificial Neural Network Training (Forward & Back Propagation)
 1. Introduction
 An Artificial Neural Network (ANN) is a system that learns from data and makes predictions.
@@ -1038,8 +1054,10 @@ Conclusion
 ANN training using forward and back propagation allows the network to:
 Learn from data Reduce errors Improve performance
 📘 This process is the foundation of modern machine learning and deep learning systems.
-Write a python program in python program for creating a Back Propagation Feed-forward 
+# 8 Write a python program in python program for creating a Back Propagation Feed-forward 
 neural network
+
+
 import numpy as np
 X = np.array([[0, 0],
               [0, 1],
@@ -1079,6 +1097,8 @@ Final Output:
  [0.96693118]
  [0.9678494 ]
  [0.98080152]]
+
+ 
 📘 Back Propagation Feed-Forward Neural Network (Theory)
 1. Introduction
 A Feed-Forward Neural Network (FFNN) is a type of artificial neural 
@@ -1168,8 +1188,10 @@ with
 models.
 and
  widely used neural network 
-implement an ann in python to learn the behaviour of an AND gate using forward propagation 
+# 9 implement an ann in python to learn the behaviour of an AND gate using forward propagation 
 and back propagation
+
+
 import numpy as np
 x = np.array([[0, 0],
               [0, 1],
@@ -1208,6 +1230,8 @@ The final output is:
  [0.105487  ]
  [0.07964549]
  [0.90435953]]
+
+ 
 📘 ANN for AND Gate using Forward & Back Propagation (Theory)
 1.
 Introduction
@@ -1276,7 +1300,9 @@ Conclusion
 The ANN successfully learns AND gate behavior by:
 Using forward propagation for prediction Using back propagation to reduce error
 📘 It demonstrates how neural networks can learn logical relationships from data.
-TensorFlow/Pytorch implementation of CNN
+# 10 TensorFlow/Pytorch implementation of CNN
+
+
 import tensorflow as tf
 from tensorflow.keras import datasets, layers, models
 import matplotlib.pyplot as plt
@@ -1406,6 +1432,8 @@ plt.title(f"Predicted: {predicted_class}")
 plt.axis(
 'off')
 plt.show()
+
+
 📘 CNN using TensorFlow / PyTorch (Theory)
 1.
 Introduction
@@ -1464,7 +1492,9 @@ CNN implemented using TensorFlow or PyTorch:
 Helps in solving image-based problems Learns patterns automatically Provides powerful deep 
 learning solutions
 📘 It is one of the most important models in modern AI.
-MNIST Handwritten Character Detection using PyTorch, Keras and Tensorflow
+# 11 MNIST Handwritten Character Detection using PyTorch, Keras and Tensorflow
+
+
 import tensorflow as tf
 from tensorflow.keras import datasets, layers, models
 import matplotlib.pyplot as plt
@@ -1620,6 +1650,9 @@ predicted_class}")
 plt.axis(
 'off')
 plt.show()
+
+
+
 📘 MNIST Handwritten Digit Detection (Theory)
 1.
 Introduction
