@@ -85,7 +85,7 @@ I specialize in turning complex data into actionable insights. With a strong fou
 # ANN
 
 
-# Write a Python program to plot a few activation functions that are being used in neural 
+# 1 Write a Python program to plot a few activation functions that are being used in neural 
 --- networks.
 import
  numpy 
@@ -471,8 +471,9 @@ The perceptron learning law:
 Helps the model learn from errors Adjusts decision boundary Correctly separates data into 
 regions
 📘 Graphical output clearly shows how the perceptron classifies data.
-Write a Python Program using Perceptron Neural Network to recognise even and odd numbers. 
+#  3 Write a Python Program using Perceptron Neural Network to recognise even and odd numbers. 
 Given numbers are in ASCII form 0 to 9
+
 import numpy as np
 def ascii_to_binary(a):
     return np.array([int(i) for i in format(a,'08b')])
@@ -511,6 +512,9 @@ print(
 "number is odd")
 Enter a digit (0-9):  5
 number is odd
+
+
+]
 📘 Perceptron for Even–Odd Number Recognition (Theory)
 1.
 Introduction
