@@ -2,7 +2,6 @@
 
 ### Aspiring Data Engineer | AI & Data Science Student | Data & Cloud Enthusiast
 
-🌐 **Portfolio:** https://abhimore.netlify.app
 
 Passionate about building scalable data pipelines, designing efficient data warehouses, and transforming raw data into meaningful business insights. I enjoy working with modern data engineering technologies and continuously learning cloud-native solutions.
 
